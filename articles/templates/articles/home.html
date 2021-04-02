@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<h1>home</h1>
+{% for head in heads %}
+  {{ head.title }} 
+
+  <div class="container">
+    <img src="{% static 'images/nct1.jpeg' %}" class="rounded float-start" alt="nct">
+    <a class="btn btn-primary" href="{% url 'articles:left' %}" role="button">nct</a>
+    {% for comment in comments %}
+      {% if comment.head.pk == head.pk %}
+        <p>{{ comment.content }}</p>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+{% endfor %}
+
+<div class="container">
+  <h1>vs</h1>
+</div>
+
+<div class="container">
+  <img src="{% static 'images/세븐틴1.jpeg'  %}" class="rounded float-end" alt="세븐틴">
+  <a class="btn btn-primary" href="{% url 'articles:right' %}" role="button">세븐틴</a>
+</div>
+
+{% endblock  %}

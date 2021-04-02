@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>세븐틴</h1>
+{{communities}}
+
+  {% for community in communities %}
+    {% comment %} <a href="#"> {% endcomment %}
+    {{ community.title }}
+    {% comment %} </a> {% endcomment %}
+    <hr>
+  {% endfor %}
+
+{% endblock  %}
